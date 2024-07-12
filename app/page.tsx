@@ -2,23 +2,41 @@
 
 import { useState } from "react";
 import { Link } from "@chakra-ui/next-js";
-import { Flex, Stack, Box, Text, Image } from "@chakra-ui/react";
+import { Flex, Stack, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 
 const Home = () => {
   const [linkText, setLinkText] = useState("walk with us");
 
+  const fontSize = useBreakpointValue({ base: "18px", md: "24px", lg: "32px" });
+  const textFontSize = useBreakpointValue({
+    base: "16px",
+    md: "20px",
+    lg: "28px",
+  });
+  const imageWidth = useBreakpointValue({ base: "60%", md: "70%", lg: "80%" });
+  const stackMarginTop = useBreakpointValue({
+    base: "-2vh",
+    md: "-3vh",
+    lg: "-5vh",
+  });
+
+  const imageMarginLeft = useBreakpointValue({
+    base: "5vh",
+    md: "3vh",
+    lg: "4vh",
+  });
+
   return (
-    <>
-      <Flex
-        justifyContent="flex-end" // This will push the Link to the right
-        alignItems="flex-start"
-        maxW="100%"
-        bgColor="#B89797"
-      >
+    <Flex
+      flexDirection="column"
+      minHeight="100vh"
+      bgColor="#B89797"
+      overflow="hidden"
+    >
+      <Flex justifyContent="flex-end" alignItems="flex-start" p={4}>
         <Link
           href="mailto:hi@flaner.studio"
-          fontSize="32"
-          mr="3vh"
+          fontSize={fontSize}
           _hover={{ textDecoration: "none" }}
           onMouseEnter={() => setLinkText("hi@flaner.studio")}
           onMouseLeave={() => setLinkText("walk with us")}
@@ -26,45 +44,45 @@ const Home = () => {
           {linkText}
         </Link>
       </Flex>
+
       <Flex
+        flex={1}
         justifyContent="center"
         alignItems="center"
-        height="100vh"
-        maxW="100%"
-        bgColor="#B89797"
+        px={4}
+        overflow="hidden"
       >
-        <Stack maxW="100%" alignItems="center" mt="-5vh">
+        <Stack maxW="100%" alignItems="center" spacing={6}>
           <Text
-            fontSize="28"
+            fontSize={textFontSize}
             p={2}
-            alignItems={"center"}
             textAlign="center"
-            textColor={"black"}
-            fontFamily={""}
+            textColor="black"
+            fontFamily=""
           >
             French people walk everywhere, and they enjoy it.
             <br />
             There is a word for this in French.
             <br />
             <br />
-            It’s called flâner.
+            It's called flâner.
             <br />
             <br />
-            Flâner means “to sort of stroll, but without a destination,
-            observing what’s
-            <br />
-            around you, and questioning, pondering, considering the world and
-            your place in it.”
-            <br /> <br /> <br />
-            <Text fontSize="32">flâner.studio coming soon</Text>
+            Flâner means "to sort of stroll, but without a destination,
+            observing what's around you, and questioning, pondering, considering
+            the world and your place in it."
           </Text>
 
-          <Box boxSize="sm" mt="4vh" ml="3vh">
-            <Image src="assets/logo.png" alt="flaner man" w="80%" />
-          </Box>
+          <Text fontSize={fontSize} textAlign="center">
+            flâner.studio coming soon
+          </Text>
         </Stack>
       </Flex>
-    </>
+
+      <Flex justifyContent="center" mb={8}>
+        <Image src="assets/logo.png" alt="flaner man" w={imageWidth} />
+      </Flex>
+    </Flex>
   );
 };
 
