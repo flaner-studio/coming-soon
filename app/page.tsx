@@ -14,17 +14,6 @@ const Home = () => {
     lg: "28px",
   });
   const imageWidth = useBreakpointValue({ base: "60%", md: "70%", lg: "80%" });
-  const stackMarginTop = useBreakpointValue({
-    base: "-2vh",
-    md: "-3vh",
-    lg: "-5vh",
-  });
-
-  const imageMarginLeft = useBreakpointValue({
-    base: "5vh",
-    md: "3vh",
-    lg: "4vh",
-  });
 
   return (
     <Flex
