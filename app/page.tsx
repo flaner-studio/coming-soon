@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@chakra-ui/next-js";
 import { Flex, Stack, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 
@@ -14,8 +14,12 @@ const Home = () => {
     lg: "28px",
   });
   const imageWidth = useBreakpointValue({ base: "50%", md: "60%", lg: "30%" });
-
   const textSpacing = useBreakpointValue({ base: 4, md: 6 });
+
+  const handleMouseEnter = () => setLinkText("hi@flaner.studio");
+  const handleMouseLeave = () => setLinkText("walk with us");
+  const handleTouchStart = () => setLinkText("hi@flaner.studio");
+  const handleTouchEnd = () => setLinkText("walk with us");
 
   return (
     <Flex
@@ -29,8 +33,16 @@ const Home = () => {
           href="mailto:hi@flaner.studio"
           fontSize={fontSize}
           _hover={{ textDecoration: "none" }}
-          onMouseEnter={() => setLinkText("hi@flaner.studio")}
-          onMouseLeave={() => setLinkText("walk with us")}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onClick={(e) => {
+            if (linkText === "walk with us") {
+              e.preventDefault();
+              setLinkText("hi@flaner.studio");
+            }
+          }}
         >
           {linkText}
         </Link>
