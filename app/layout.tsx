@@ -1,5 +1,7 @@
 import { fonts } from "./font";
 import { Provider } from "./provider";
+import "./global.css";
+
 export const metadata = {
   title: "flâner.studio",
   description: "A creative studio focusing on both digital & physical proucts",

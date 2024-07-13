@@ -13,12 +13,14 @@ const Home = () => {
     md: "20px",
     lg: "28px",
   });
-  const imageWidth = useBreakpointValue({ base: "60%", md: "70%", lg: "80%" });
+  const imageWidth = useBreakpointValue({ base: "50%", md: "60%", lg: "30%" });
+
+  const textSpacing = useBreakpointValue({ base: 4, md: 6 });
 
   return (
     <Flex
       flexDirection="column"
-      minHeight="100vh"
+      height="100dvh"
       bgColor="#B89797"
       overflow="hidden"
     >
@@ -41,7 +43,7 @@ const Home = () => {
         px={4}
         overflow="hidden"
       >
-        <Stack maxW="100%" alignItems="center" spacing={6}>
+        <Stack maxW="100%" alignItems="center" spacing={textSpacing}>
           <Text
             fontSize={textFontSize}
             p={2}
