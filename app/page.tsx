@@ -7,10 +7,10 @@ import { Flex, Stack, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 const Home = () => {
   const [linkText, setLinkText] = useState("walk with us");
 
-  const fontSize = useBreakpointValue({ base: "18px", md: "24px", lg: "32px" });
+  const fontSize = useBreakpointValue({ base: "24px", md: "28px", lg: "36px" });
   const textFontSize = useBreakpointValue({
-    base: "16px",
-    md: "20px",
+    base: "22px",
+    md: "26px",
     lg: "28px",
   });
   const imageWidth = useBreakpointValue({ base: "50%", md: "60%", lg: "30%" });
@@ -42,8 +42,10 @@ const Home = () => {
         alignItems="center"
         px={4}
         overflow="hidden"
+        // mt="-10dvh"
+        mb="-5dvh"
       >
-        <Stack maxW="100%" alignItems="center" spacing={textSpacing}>
+        <Stack maxW="100%" alignItems="center" spacing={textSpacing} mb="5dvh">
           <Text
             fontSize={textFontSize}
             p={2}
@@ -60,17 +62,20 @@ const Home = () => {
             <br />
             <br />
             Flâner means "to sort of stroll, but without a destination,
-            observing what's around you, and questioning, pondering, considering
-            the world and your place in it."
+            observing what's around you,
+            <br />
+            and questioning, pondering, considering the world and your place in
+            it."
           </Text>
+          <br />
 
-          <Text fontSize={fontSize} textAlign="center">
+          <Text fontSize={fontSize} textAlign="center" mt="-2dvh">
             flâner.studio coming soon
           </Text>
         </Stack>
       </Flex>
 
-      <Flex justifyContent="center" mb={8}>
+      <Flex justifyContent="center" mb="5dvh">
         <Image src="assets/logo.png" alt="flaner man" w={imageWidth} />
       </Flex>
     </Flex>
