@@ -1,5 +1,6 @@
 import { fonts } from "./font";
 import { Provider } from "./provider";
+import "./global.css";
 
 export default function RootLayout({
   children,
