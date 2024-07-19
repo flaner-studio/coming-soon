@@ -25,7 +25,8 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "app/brand-discovery"
   ],
   "exclude": ["node_modules"]
 }

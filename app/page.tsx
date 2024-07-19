@@ -1,20 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Link } from "@chakra-ui/next-js";
-import { Flex, Stack, Text, Image, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Image, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+import { useState } from "react";
 
 const Home = () => {
   const [linkText, setLinkText] = useState("walk with us");
 
-  const fontSize = useBreakpointValue({ base: "24px", md: "28px", lg: "36px" });
+  const fontSize = useBreakpointValue({
+    base: "24px",
+    md: "28px",
+    lg: "36px",
+    xl: "48px",
+  });
   const textFontSize = useBreakpointValue({
     base: "22px",
     md: "26px",
     lg: "28px",
+    xl: "32px",
   });
-  const imageWidth = useBreakpointValue({ base: "50%", md: "60%", lg: "30%" });
-  const textSpacing = useBreakpointValue({ base: 4, md: 6 });
+  const imageWidth = useBreakpointValue(
+    { base: "50%", md: "40%", lg: "20%" },
+    { fallback: "lg" }
+  );
+  const textSpacing = useBreakpointValue({ base: 4, md: 2 });
 
   const handleMouseEnter = () => setLinkText("hi@flaner.studio");
   const handleMouseLeave = () => setLinkText("walk with us");
@@ -27,6 +36,7 @@ const Home = () => {
       height="100dvh"
       bgColor="#B89797"
       overflow="hidden"
+      pb={5}
     >
       <Flex justifyContent="flex-end" alignItems="flex-start" p={4}>
         <Link
@@ -50,14 +60,18 @@ const Home = () => {
 
       <Flex
         flex={1}
-        justifyContent="center"
+        justifyContent="space-around"
         alignItems="center"
         px={4}
         overflow="hidden"
-        // mt="-10dvh"
-        mb="-5dvh"
+        flexDirection="column"
       >
-        <Stack maxW="100%" alignItems="center" spacing={textSpacing} mb="5dvh">
+        <Stack
+          maxW="100%"
+          alignItems="center"
+          justifyContent="space-evenly"
+          spacing={textSpacing}
+        >
           <Text
             fontSize={textFontSize}
             p={2}
@@ -68,27 +82,40 @@ const Home = () => {
             French people walk everywhere, and they enjoy it.
             <br />
             There is a word for this in French.
-            <br />
-            <br />
+          </Text>
+          <Text
+            fontSize={textFontSize}
+            p={2}
+            textAlign="center"
+            textColor="black"
+            fontFamily=""
+          >
             It's called flâner.
-            <br />
-            <br />
+          </Text>
+          <Text
+            fontSize={textFontSize}
+            p={2}
+            textAlign="center"
+            textColor="black"
+            fontFamily=""
+          >
             Flâner means "to sort of stroll, but without a destination,
             observing what's around you,
             <br />
             and questioning, pondering, considering the world and your place in
             it."
           </Text>
-          <br />
-
-          <Text fontSize={fontSize} textAlign="center" mt="-2dvh">
-            flâner.studio coming soon
-          </Text>
         </Stack>
-      </Flex>
-
-      <Flex justifyContent="center" mb="5dvh">
-        <Image src="assets/logo.png" alt="flaner man" w={imageWidth} />
+        <Text fontSize={fontSize} textAlign="center">
+          flâner.studio coming soon
+        </Text>
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <Image src="assets/logo.png" alt="flaner man" w={imageWidth} />
+        </Flex>
       </Flex>
     </Flex>
   );

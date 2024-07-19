@@ -1,6 +1,6 @@
 import { fonts } from "./font";
-import { Provider } from "./provider";
 import "./global.css";
+import { Provider } from "./provider";
 
 export const metadata = {
   title: "flâner.studio",
@@ -79,7 +79,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
+export default function BrandingInquiry({
   children,
 }: {
   children: React.ReactNode;
