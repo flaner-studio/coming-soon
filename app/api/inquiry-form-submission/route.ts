@@ -2,6 +2,17 @@ import axios from "axios";
 import { format } from "date-fns";
 import { NextRequest, NextResponse } from "next/server";
 
+function camelCaseToTitleCase(camelCaseStr: string) {
+  // Convert camelCase to human-readable string with spaces
+  const humanReadableStr = camelCaseStr
+    .replace(/([a-z])([A-Z])/g, "$1 $2") // Add space before uppercase letters
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2") // Handle cases with consecutive uppercase letters
+    .toLowerCase(); // Convert to lowercase
+
+  // Convert the string to title case
+  return humanReadableStr.replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize the first letter of each word
+}
+
 export async function GET(request: NextRequest) {
   return NextResponse.json({ message: "Hello, world!" });
 }
@@ -19,7 +30,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     let markdownContent = `# Business Inquiry\n\n`;
 
     for (const [key, value] of Object.entries(data)) {
-      markdownContent += `## ${key}\n${value}\n\n`;
+      markdownContent += `## ${camelCaseToTitleCase(key)}\n${value}\n\n`;
     }
 
     // Generate a unique filename
