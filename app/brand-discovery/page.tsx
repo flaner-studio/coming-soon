@@ -267,7 +267,11 @@ const BusinessForm: React.FC = () => {
                   size="lg"
                   width="full"
                   isLoading={isSubmitting}
-                  spinner={<CircleLoader color="#B89797" />}
+                  spinner={
+                    <Flex p={2}>
+                      <CircleLoader color="#B89797" />
+                    </Flex>
+                  }
                 >
                   Submit
                 </Button>
