@@ -20,7 +20,7 @@ const Home = () => {
     xl: "32px",
   });
   const imageWidth = useBreakpointValue(
-    { base: "50%", md: "40%", lg: "20%" },
+    { base: "50%", md: "40%", lg: "20%", xl: "15%" },
     { fallback: "lg" }
   );
   const textSpacing = useBreakpointValue({ base: 4, md: 2 });
